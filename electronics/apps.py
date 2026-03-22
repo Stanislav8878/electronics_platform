@@ -1,9 +1,9 @@
-"""Application configuration for the electronics app."""
+"""Конфигурация приложения electronics."""
 from django.apps import AppConfig
 
 
 class ElectronicsConfig(AppConfig):
-    """App configuration for the electronics network domain."""
+    """Конфигурация приложения сети электроники."""
 
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'electronics'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "electronics"

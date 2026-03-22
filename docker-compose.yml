@@ -2,27 +2,23 @@ services:
   db:
     image: postgres:17
     container_name: electronics_postgres
+    restart: always
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    ports:
-      - "5434:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
-      interval: 10s
+      interval: 5s
       timeout: 5s
-      retries: 5
+      retries: 10
 
   web:
     build: .
     container_name: electronics_web
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py createsuperuser --noinput || true &&
-             python manage.py runserver 0.0.0.0:8000"
+    command: sh /app/entrypoint.sh
     volumes:
       - .:/app
     ports:

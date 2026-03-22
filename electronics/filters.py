@@ -1,16 +1,16 @@
-"""Filter sets for the electronics API."""
+"""Фильтры для API."""
 import django_filters
 
 from .models import NetworkNode
 
 
 class NetworkNodeFilter(django_filters.FilterSet):
-    """Filter API results by country."""
+    """Фильтр для выборки звеньев сети по стране."""
 
-    country = django_filters.CharFilter(field_name='country', lookup_expr='iexact')
+    country = django_filters.CharFilter(field_name="country", lookup_expr="iexact")
 
     class Meta:
-        """Filter configuration."""
+        """Настройки фильтра."""
 
         model = NetworkNode
-        fields = ('country',)
+        fields = ("country",)
