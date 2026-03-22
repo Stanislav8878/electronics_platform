@@ -181,7 +181,7 @@ electronics_platform/
 Проект покрыт автоматическими тестами на 100%.
 
 ---
-(venv) PS C:\Users\Stanislav\PycharmProjects\electronics_platform> docker compose exec web coverage report -m
+
 Name                                     Stmts   Miss  Cover   Missing
 ----------------------------------------------------------------------
 config/__init__.py                           0      0   100%
